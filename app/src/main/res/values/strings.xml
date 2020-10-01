@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">PAXI</string>
+
+    <!-- Main Activity/Fragment -->
+    <string name="empty_view_text">Press the Floating Action Button to add an action!</string>
+
+    <!-- Edit Action Activity/Fragment -->
+    <string name="time">Time</string>
+    <string name="label">Label</string>
+    <string name="days">Days</string>
+    <string name="edit_alarm">Edit Action</string>
+    <string name="add_alarm">Add Action</string>
+    <string name="add_label_hint">Add a label!</string>
+    <string name="update_complete">Changes Saved</string>
+    <string name="update_failed">Update Failed</string>
+    <string name="delete_complete">Action Deleted</string>
+    <string name="changes_discarded">Changes discarded</string>
+    <string name="delete_failed">Delete Failed</string>
+    <string name="delete_dialog_title">Confirm Delete Action</string>
+    <string name="delete_dialog_content">Are you sure you would like to delete this action?</string>
+    <string name="choose_a_day">you need to choose a day</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- Edit Action Menu -->
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
+
+    <!-- Action Landing Page Activity/Fragment -->
+    <string name="launch_main_activity">Launch Main Activity</string>
+    <string name="dismiss">Dismiss</string>
+
+    <!-- Days -->
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+
+    <string name="toggle_name">ToggleButton</string>
+    <string name="open_action">OPEN</string>
+    <string name="close_action">CLOSE</string>
+
+    <!-- Notification -->
+    <string name="channel_name">@string/app_name</string>
+
+</resources>
