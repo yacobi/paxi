@@ -5,7 +5,13 @@ android {
     sourceSets {
         main {
             java {
-                exclude 'com/ryacobi/paxi/ui/*.java'
+                exclude 'com/ryacobi/paxi/AddEditNoteActivity.java'
+                exclude 'com/ryacobi/paxi/Note.java'
+                exclude 'com/ryacobi/paxi/NoteAdapter.java'
+                exclude 'com/ryacobi/paxi/NoteDao.java'
+                exclude 'com/ryacobi/paxi/NoteDatabase.java'
+                exclude 'com/ryacobi/paxi/NoteRepository.java'
+                exclude 'com/ryacobi/paxi/NoteMainActivity.java'
             }
         }
     }

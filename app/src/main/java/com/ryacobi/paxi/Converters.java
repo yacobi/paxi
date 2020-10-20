@@ -1,26 +1,47 @@
 package com.ryacobi.paxi;
 
-import android.util.SparseBooleanArray;
-import androidx.room.TypeConverter;
-import org.apache.commons.lang3.StringUtils;
+import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.room.TypeConverter;
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Converters {
     @TypeConverter
-    public static String intListToString(List<Integer> intList) {
-        return intList.toString();
+    public static String boolArrayToString(boolean array[]) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < array.length; i++) {
+            if (array[i]) builder.append("1"); else builder.append("0");
+        }
+        Log.d("received string", builder.toString());
+        return builder.toString();
     }
 
     @TypeConverter
-    public static List<Integer> stringToIntList(String string) {
-        Scanner scanner = new Scanner(string);
-        List<Integer> list = new ArrayList<Integer>();
-        while (scanner.hasNextInt()) {
-            list.add(scanner.nextInt());
+    public static boolean[] stringToBoolArray(String s) {
+        Log.d("received string", s);
+        boolean[] array = new boolean[7];
+        for(int i = 0; i < s.length(); i++)
+        {
+            char c = s.charAt(i);
+            if (c == '0')
+            {
+                array[i] = false;
+            }
+            else if (c == '1')
+            {
+                array[i] = true;
+            }
+            else
+            {
+                try {
+                    throw new Exception("String can only be made of 1 and 0.");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        return list;
+       return array;
     }
 }

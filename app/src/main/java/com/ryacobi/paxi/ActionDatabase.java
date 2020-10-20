@@ -10,18 +10,21 @@ import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import android.os.AsyncTask;
 
-@Database(entities = {Note.class}, version = 1)
+import com.ryacobi.paxi.Action;
+
+@Database(entities = {Action.class}, version = 1, exportSchema=false)
 @TypeConverters({Converters.class})
 
-public abstract class NoteDatabase extends RoomDatabase {
-    private static NoteDatabase instance;
-    public abstract NoteDao noteDao();
-    public static synchronized NoteDatabase getInstance(Context context) {
+public abstract class ActionDatabase extends RoomDatabase {
+
+    private static ActionDatabase instance;
+
+    public abstract ActionDao daoAction();
+
+    public synchronized static ActionDatabase getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    NoteDatabase.class, "note_database")
-                    .fallbackToDestructiveMigration()
-                    .addCallback(roomCallback)
+                    ActionDatabase.class, "action").fallbackToDestructiveMigration()
                     .build();
         }
         return instance;
@@ -34,15 +37,12 @@ public abstract class NoteDatabase extends RoomDatabase {
         }
     };
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        private NoteDao noteDao;
-        private PopulateDbAsyncTask(NoteDatabase db) {
-            noteDao = db.noteDao();
+        private ActionDao actionDao;
+        private PopulateDbAsyncTask(ActionDatabase db) {
+            actionDao = db.daoAction();
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            noteDao.insert(new Note("Title 1", "Description 1", 1));
-            noteDao.insert(new Note("Title 2", "Description 2", 2));
-            noteDao.insert(new Note("Title 3", "Description 3", 3));
             return null;
         }
     }
